@@ -6,8 +6,8 @@ Resources:
   AppFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Runtime: java8
-      Handler: de.komoot.App::handleRequest
+      Runtime: java11
+      Handler: com.example.stackoverflow.App::handleRequest
       Timeout: 60
       MemorySize: 512
       CodeUri: ./target/stackoverflowrepro.jar
