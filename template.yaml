@@ -3,11 +3,20 @@ Transform: AWS::Serverless-2016-10-31
 Resources:
   # See https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
   # for more info to see how to tune the lambda function configs based on your use case.
-  AppFunction:
+  OkHttp:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: java11
-      Handler: com.example.stackoverflow.App::handleRequest
+      Handler: com.example.stackoverflow.OkHttpApp::handleRequest
+      Timeout: 60
+      MemorySize: 512
+      CodeUri: ./target/stackoverflowrepro.jar
+
+  Apache:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java11
+      Handler: com.example.stackoverflow.ApacheApp::handleRequest
       Timeout: 60
       MemorySize: 512
       CodeUri: ./target/stackoverflowrepro.jar
