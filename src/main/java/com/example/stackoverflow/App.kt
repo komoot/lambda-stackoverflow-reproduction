@@ -4,8 +4,6 @@ import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
 import io.ktor.client.*
 import io.ktor.client.engine.apache.*
-import io.ktor.client.plugins.*
-import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.runBlocking
 import java.io.BufferedReader
@@ -29,9 +27,6 @@ fun reproduce() {
         engine {
             // this is just so we can debug faster
             socketTimeout = 500
-        }
-        install(Logging) {
-            logger = Logger.DEFAULT
         }
     }
 
